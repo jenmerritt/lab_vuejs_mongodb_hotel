@@ -7,6 +7,7 @@
 <script>
 import Guest from './Guest.vue';
 import GuestsService from '../../services/GuestsService';
+import { eventBus } from '../main';
 
 export default {
   name: "guests-grid",
@@ -20,6 +21,9 @@ export default {
   },
   mounted(){
     this.fetchData();
+
+    eventBus.$on('guest-added', guest => this.guests.push(guest));
+    
   },
   methods: {
     fetchData(){
