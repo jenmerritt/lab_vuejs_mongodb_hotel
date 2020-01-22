@@ -31,13 +31,9 @@ export default {
         status: true
       }
 
-    //   GuestsService.updateGuest(this.guest._id, payload)
-    //    .then( () => eventBus.$emit('guest-updated', this.guest._id));
-    // }
-
-    GuestsService.updateGuest(this.guest._id, payload)
-     .then( () => eventBus.$emit('guest-updated', this.guest._id));
-  }
+      GuestsService.updateGuest(this.guest._id, payload)
+        .then( () => eventBus.$emit('guest-updated', this.guest._id));
+    }
 
   }
 }

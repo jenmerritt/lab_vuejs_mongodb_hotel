@@ -38,7 +38,7 @@ export default {
       };
 
       GuestsService.postGuest(payload)
-      .then( guest => {
+        .then( guest => {
         eventBus.$emit('guest-added', guest)
       })
 
