@@ -16,6 +16,7 @@
     "mongodb": "^3.5.2"
   },
   "devDependencies": {
+    "cors": "^2.8.5",
     "nodemon": "^2.0.2"
   }
 }
