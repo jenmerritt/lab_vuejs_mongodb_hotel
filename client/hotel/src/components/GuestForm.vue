@@ -27,6 +27,7 @@ export default {
     }
   },
   methods: {
+
     addGuest(event){
       event.preventDefault();
 
@@ -40,7 +41,12 @@ export default {
       .then( guest => {
         eventBus.$emit('guest-added', guest)
       })
+
+      this.name = "";
+      this.email = "";
+      this.status = null;
     }
+
   }
 }
 </script>
