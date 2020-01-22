@@ -5,6 +5,7 @@
     <h3 v-if="!guest.status">Awaiting Check-In</h3>
     <p>{{ guest.email }}</p>
     <button v-on:click="deleteThisGuest">Delete</button>
+    <button v-if="!guest.status" v-on:click="updateThisGuest">Check-In</button>
   </div>
 </template>
 
@@ -16,10 +17,28 @@ export default {
   name: "guest",
   props: ['guest'],
   methods:{
+
     deleteThisGuest(){
       GuestsService.deleteGuest(this.guest._id)
       .then(() => eventBus.$emit('guest-deleted', this.guest._id))
-    }
+    },
+
+    updateThisGuest(){
+
+      const payload = {
+        name: this.guest.name,
+        email: this.guest.email,
+        status: true
+      }
+
+    //   GuestsService.updateGuest(this.guest._id, payload)
+    //    .then( () => eventBus.$emit('guest-updated', this.guest._id));
+    // }
+
+    GuestsService.updateGuest(this.guest._id, payload)
+     .then( () => eventBus.$emit('guest-updated', this.guest._id));
+  }
+
   }
 }
 </script>

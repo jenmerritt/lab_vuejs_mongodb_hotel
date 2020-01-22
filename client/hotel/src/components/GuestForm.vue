@@ -7,8 +7,8 @@
     <input type="text" id="email" v-model="email" />
     <label for="status">Status:</label>
     <select v-model="status">
-      <option value="true">Checked-In</option>
-      <option value="false">Awaiting Check-In</option>
+      <option v-bind:value="true">Checked-In</option>
+      <option v-bind:value="false">Awaiting Check-In</option>
     </select>
     <input type="submit" value="Add Guest"/>
   </form>
